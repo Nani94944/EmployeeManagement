@@ -1,0 +1,14 @@
+﻿@model IEnumerable<EmployeeManagement.Models.Employee>
+<div class="employee-management">
+    <h2>Employees</h2>
+    <div>
+        <a href="@Url.Action("Create")" class="btn btn-primary">Add New Employee</a>
+    </div>
+    <partial name="_EmployeeList" model="Model" />
+    <div class="pagination">
+        @for (int i = 1; i<=ViewBag.TotalPages; i++)
+        {
+            <a href="@Url.Action("Index", new { page = i })" class="@(i == ViewBag.CurrentPage ? "active" : "")">@i</a>
+        }
+    </div>
+</div>
